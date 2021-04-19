@@ -1,0 +1,23 @@
+.next-days h2 {
+	color: rgba(255, 255, 255, 0.8);
+	font-size: 1.1rem;
+	font-weight: normal;
+	margin: 24px 0 16px;
+}
+.next-days--day {
+	background-color: rgba(0, 0, 0, 0.2);
+	border-radius: 5px;
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	padding: 16px 0;
+}
+
+.next-days--day > * {
+	flex-basis: 33.33%;
+	margin: 8px 0;
+	text-align: center;
+}
+.next-days--desc {
+	color: rgba(255, 255, 255, 0.6);
+}

@@ -1,0 +1,22 @@
+* {
+	/* -webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale; */
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+.App {
+	background-color: beige;
+	color: white;
+	width: 100vw;
+	padding: 32px 24px;
+	min-height: 100vh;
+	font-family: 'Open Sans', sans-serif;
+	/* display: flex;
+	flex-wrap: wrap; */
+	background: linear-gradient(to bottom, rgb(43, 50, 178) 0%, rgb(20, 136, 204) 100%);
+}
+
+.App > * {
+	width: 100%;
+}
