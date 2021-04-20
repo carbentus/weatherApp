@@ -16,37 +16,15 @@ const Result = (props) => {
 				<div>
 					Results for: <strong>{city}</strong>, {country}
 				</div>
-				<div>
-					Description: <strong>{description}</strong>
-				</div>
-				<div>
-					Date: <strong>{date}</strong>
-				</div>
-				<div>
-					Sunrise: <strong>{sunriseTime}</strong>
-				</div>
-				<div>
-					Sunset:<strong> {sunsetTime}</strong>
-				</div>
-				<div>
-					Temperature:<strong> {temp}</strong>
-				</div>
-				<div>
-					Pressure: <strong>{pressure}</strong>
-				</div>
-				<div>
-					Wind: <strong>{wind} km/h</strong>
-				</div>
-				<div>
-					Description: <strong>{description}</strong>
-				</div>
 			</>
 		);
 	}
 	return (
 		<>
 			<div className="result">
-				{props.error ? `in our database there is no city: ${city}` : content}
+				{props.error
+					? `in our database there is no city: ${this.state.locationDate.city}`
+					: content}
 			</div>
 		</>
 	);

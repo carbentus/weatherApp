@@ -12,6 +12,7 @@ class App extends Component {
 	state = {
 		value: '',
 		err: '',
+		err2: '',
 
 		locationDate: {
 			currentTime: new Date(),
@@ -46,7 +47,7 @@ class App extends Component {
 	componentDidUpdate(prevProps, prevState) {
 		let lat = this.state.locationDate.lat;
 		let lon = this.state.locationDate.lon;
-		// if (this.state.value.length < 1) return;
+		if (this.state.value.length < 2) return;
 		if (prevState.value !== this.state.value) {
 			const API = `http://api.openweathermap.org/data/2.5/weather?q=${this.state.value}&appid=${APIKey}&units=metric`;
 			// const API = `http://api.openweathermap.org/data/2.5/weather?q=Sidney&appid=${APIKey}&units=metric&lang=en`;
@@ -90,6 +91,7 @@ class App extends Component {
 					}));
 				})
 				.catch((err) => {
+					console.log('error1');
 					this.setState((prevState) => ({
 						err: true,
 						currentWeather: {
@@ -99,39 +101,49 @@ class App extends Component {
 				});
 
 			// API2 - hourly, daily forecast
-			fetch(API2)
-				.then((response) => {
-					if (response.ok) {
-						return response;
-					}
-					throw Error(`Fail. Didn't find the city:"${this.state.value}"`);
-				})
-				.then((response) => response.json())
-				.then((data2) => {
-					console.log('API 2:');
-					console.log(data2);
+			if (!this.state.err) {
+				fetch(API2)
+					.then((response) => {
+						if (response.ok) {
+							return response;
+						}
+						throw Error(`Fail. Didn't find the city:"${this.state.value}"`);
+					})
+					.then((response) => response.json())
+					.then((data2) => {
+						console.log('API 2:');
+						console.log(data2);
 
-					const days = data2.daily;
-					this.setState({
-						err: false,
-						forecast: {
-							days: [...days],
-						},
+						const days = data2.daily;
+						this.setState({
+							err: false,
+							forecast: {
+								days: [...days],
+							},
+						});
+					})
+					.catch((err2) => {
+						console.log('error2');
+						this.setState((prevState) => ({
+							err2: true,
+						}));
 					});
-				})
-				.catch((err) => {
-					console.log('error');
-					this.setState((prevState) => ({
-						err: true,
-						currentWeather: {
-							city: prevState.value,
-						},
-					}));
-				});
+			}
 		}
 	}
 
 	render() {
+		let result = null;
+		if (!this.state.err && this.state.locationDate.city) {
+			result = (
+				<>
+					<LocationDate locationDate={this.state.locationDate} error={this.state.err} />
+					<CurrentTemp weather={this.state.currentWeather} />
+					<CurrentStats weather={this.state.currentWeather} />
+					<NextDays locationDate={this.state.locationDate} forecast={this.state.forecast} />
+				</>
+			);
+		}
 		return (
 			<div className="App">
 				<Form
@@ -139,15 +151,11 @@ class App extends Component {
 					change={this.handleInputChange}
 					submit={this.handleCitySubmit}
 				/>
-				<LocationDate locationDate={this.state.locationDate} error={this.state.err} />
-				<CurrentTemp weather={this.state.currentWeather} />
-				<CurrentStats weather={this.state.currentWeather} />
-				<NextDays locationDate={this.state.locationDate} forecast={this.state.forecast} />
-				{/* <Result
-					error={this.state.err}
-					weather={this.state.currentWeather}
-					locationDate={this.state.locationDate}
-				/> */}
+				<div className="result">
+					{this.state.error
+						? `in our database there is no city: ${this.state.locationDate.city}`
+						: result}
+				</div>
 			</div>
 		);
 	}
