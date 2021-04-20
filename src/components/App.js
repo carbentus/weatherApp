@@ -32,8 +32,8 @@ class App extends Component {
 			description: '',
 		},
 
-		forecastDay1: {
-			currentTime: new Date(),
+		forecast: {
+			days: [],
 		},
 	};
 
@@ -48,8 +48,8 @@ class App extends Component {
 		let lon = this.state.locationDate.lon;
 		// if (this.state.value.length < 1) return;
 		if (prevState.value !== this.state.value) {
-			// const API = `http://api.openweathermap.org/data/2.5/weather?q=${this.state.value}&appid=${APIKey}&units=metric`;
-			const API = `http://api.openweathermap.org/data/2.5/weather?q=Sidney&appid=${APIKey}&units=metric&lang=en`;
+			const API = `http://api.openweathermap.org/data/2.5/weather?q=${this.state.value}&appid=${APIKey}&units=metric`;
+			// const API = `http://api.openweathermap.org/data/2.5/weather?q=Sidney&appid=${APIKey}&units=metric&lang=en`;
 
 			const API2 = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely&appid=${APIKey}&units=metric&lang=en`;
 
@@ -63,6 +63,7 @@ class App extends Component {
 				})
 				.then((response) => response.json())
 				.then((data) => {
+					console.log('API 1:');
 					console.log(data);
 					const time = new Date();
 					this.setState((prevState) => ({
@@ -87,7 +88,7 @@ class App extends Component {
 							description: data.weather[0].description,
 						},
 					}));
-				}) //objekt z informacjami o pogodzie
+				})
 				.catch((err) => {
 					this.setState((prevState) => ({
 						err: true,
@@ -107,17 +108,17 @@ class App extends Component {
 				})
 				.then((response) => response.json())
 				.then((data2) => {
-					console.log('wywołało API 2');
+					console.log('API 2:');
 					console.log(data2);
-					this.setState((prevState) => ({
-						err: false,
 
-						forecastDay1: {
-							currentTime: data2.daily[0].dt,
+					const days = data2.daily;
+					this.setState({
+						err: false,
+						forecast: {
+							days: [...days],
 						},
-					}));
-					console.log(this.state.forecastDay1.currentTime);
-				}) //objekt z informacjami o pogodzie
+					});
+				})
 				.catch((err) => {
 					console.log('error');
 					this.setState((prevState) => ({
@@ -141,7 +142,7 @@ class App extends Component {
 				<LocationDate locationDate={this.state.locationDate} error={this.state.err} />
 				<CurrentTemp weather={this.state.currentWeather} />
 				<CurrentStats weather={this.state.currentWeather} />
-				<NextDays locationDate={this.state.locationDate} day1={this.state.forecastDay1} />
+				<NextDays locationDate={this.state.locationDate} forecast={this.state.forecast} />
 				{/* <Result
 					error={this.state.err}
 					weather={this.state.currentWeather}
