@@ -23,22 +23,17 @@ const LocationDate = (props) => {
 	const dayName = weekDay[currentTime.getDay()];
 	const monthName = monthNames[currentTime.getMonth()];
 	const monthDay = currentTime.getDate();
-	let content = null;
 
-	if (!props.error && city) {
-		content = (
-			<>
-				<h1 className="location--city-country">
-					{city}, {country}
-				</h1>
-				<div className="location--date">
-					{dayName} {monthDay}th {monthName}, {hour}
-				</div>
-			</>
-		);
-	}
-
-	return <section className="location">{content}</section>;
+	return (
+		<section className="location">
+			<h1 className="location--city-country">
+				{city}, {country}
+			</h1>
+			<div className="location--date">
+				{dayName} {monthDay}th {monthName}, {hour}
+			</div>
+		</section>
+	);
 };
 
 export default LocationDate;

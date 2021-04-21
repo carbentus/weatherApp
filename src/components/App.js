@@ -97,6 +97,10 @@ class App extends Component {
 						currentWeather: {
 							city: prevState.value,
 						},
+						locationDate: {
+							lat: '',
+							lon: '',
+						},
 					}));
 				});
 
@@ -162,3 +166,8 @@ class App extends Component {
 }
 
 export default App;
+
+//1. Dlaczego nie wyświetla diva result i komunikatu z warunku linia 160?
+// 2. fetch API2 bazuje na danych wyplutych z API1, co oznacza, że dopiero przy kolejnym renderze są te dane spójne. Jak to naprawić ?  Jak to się objawia?...: np. wpisać miasto WAR (pojawią się pola generowane przez API1, ale już nie pojawi się Forecast generowany przez API2, bo ten fetch otrzyma dane wejściowe dopiero przy kolejnym renderze...)... w zwiazku z tym, jak bedziemy pisać dalej i np. napiszemy "WARSZAWA" to dane na kolejnych 5 dni będą niewłaściwe, bo będą odnosić się do stanu który był odnaleziony poprzednio (tutaj miasto "WAR")
+// 3. Problem z pobraniem (przekonwertowaniem) daty z API2(dzień i miesiąć) . Patrze data w forecast na kolejne 5 dni. Komponent: NextDays.js
+//

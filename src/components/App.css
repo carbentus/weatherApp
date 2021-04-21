@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
 * {
 	/* -webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale; */
@@ -11,7 +13,7 @@
 	width: 100vw;
 	padding: 32px 24px;
 	min-height: 100vh;
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'Roboto', 'Open-Sans', sans-serif;
 	/* display: flex;
 	flex-wrap: wrap; */
 	background: linear-gradient(to bottom, rgb(43, 50, 178) 0%, rgb(20, 136, 204) 100%);

@@ -1,0 +1,13 @@
+.form-input {
+	width: 100%;
+	height: 48px;
+	font-size: 0.9rem;
+	color: #1c4497;
+	/* font-weight: bold; */
+	border-radius: 8px;
+	margin-bottom: 24px;
+	padding: 8px 16px;
+	letter-spacing: 1px;
+	border: none;
+	outline: none;
+}
