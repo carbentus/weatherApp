@@ -17,11 +17,9 @@ const monthNames = [
 ];
 
 const NextDays = (props) => {
-	const d = new Date();
-
-	const days = props.forecast.days.slice(0, 5).map((day, index) => {
-		// let monthNb = d.getMonth(day.dt);
-		let dayNumber = d.getDay(day.dt);
+	const days = props.forecast.days.slice(1, 6).map((day, index) => {
+		const d = new Date(day.dt * 1000);
+		let dayNumber = d.getDate();
 		const monthName = monthNames[d.getMonth()];
 
 		const iconURL = `http://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png`;
