@@ -14,7 +14,7 @@
   margin: 10px 0;
 }
 
-.next-days--day > * {
+.next-days--tile {
   flex-basis: 33.33%;
   margin: 8px 0;
   text-align: center;
@@ -25,12 +25,46 @@
   flex-direction: column;
   justify-content: flex-end;
 }
+
+.next-days--value {
+  font-size: 1.1rem;
+}
 .next-days--desc {
   color: rgba(255, 255, 255, 0.6);
 }
 
-img {
+.next-days--icon {
   width: 100%;
   margin: -20% -20% -35%;
-  /* filter: brightness(80); */
+}
+
+/* ------ MEDIA ------ */
+@media screen and (min-width: 375px) and (orientation: portrait) {
+  .next-days h2,
+  .next-days--value {
+    font-size: 1.1rem;
+  }
+}
+
+@media screen and (min-width: 480px) and (orientation: portrait) {
+  .next-days h2,
+  .next-days--value {
+    font-size: 1.4rem;
+  }
+
+  .next-days--desc {
+    font-size: 1.1rem;
+  }
+}
+
+@media screen and (min-width: 768px) and (orientation: portrait) {
+  .next-days--tile {
+    flex-basis: 16.66%;
+  }
+  .next-days--tile.forecast-icon {
+    order: -1;
+  }
+  .next-days--tile.date {
+    order: -2;
+  }
 }

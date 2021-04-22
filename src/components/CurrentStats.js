@@ -7,22 +7,28 @@ const CurrentStats = (props) => {
   return (
     <section className="current-stats">
       <div>
-        <div class="current-stats--value">{tempMax}&deg;</div>
-        <div class="current-stats--desc">High</div>
-        <div class="current-stats--value">{tempMin}&deg;</div>
-        <div class="current-stats--desc">Low</div>
+        <div className="current-stats--value">{tempMax}&deg;</div>
+        <div className="current-stats--desc">High</div>
+        <div className="current-stats--value">{tempMin}&deg;</div>
+        <div className="current-stats--desc">Low</div>
       </div>
       <div>
-        <div class="current-stats--value">{wind}m/s</div>
-        <div class="current-stats--desc">Wind</div>
-        <div class="current-stats--value">{pressure}hPa</div>
-        <div class="current-stats--desc">Pressure</div>
+        <div className="current-stats--value">
+          {wind}
+          <span>m/s</span>
+        </div>
+        <div className="current-stats--desc">Wind</div>
+        <div className="current-stats--value">
+          {pressure}
+          <span>hPa</span>
+        </div>
+        <div className="current-stats--desc">Pressure</div>
       </div>
       <div>
-        <div class="current-stats--value">{sunriseTime}</div>
-        <div class="current-stats--desc">Sunrise</div>
-        <div class="current-stats--value">{sunsetTime}</div>
-        <div class="current-stats--desc">Sunset</div>
+        <div className="current-stats--value">{sunriseTime}</div>
+        <div className="current-stats--desc">Sunrise</div>
+        <div className="current-stats--value">{sunsetTime}</div>
+        <div className="current-stats--desc">Sunset</div>
       </div>
     </section>
   );

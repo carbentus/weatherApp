@@ -1,6 +1,7 @@
 .current-temp {
   display: flex;
   overflow: hidden;
+  margin-top: 32px;
 }
 .current-temp--icon {
   flex-basis: 60%;
@@ -27,5 +28,45 @@
 }
 .current-temp--desc {
   font-size: 1.1rem;
-  text-indent: 6px;
+}
+
+@media screen and (min-width: 375px) and (orientation: portrait) {
+  .current-temp--deg {
+    margin: -5% 0;
+  }
+  .current-temp--icon-img {
+    width: 100%;
+    margin: -25% -5% -40%;
+  }
+}
+
+@media screen and (min-width: 414px) and (orientation: portrait) {
+  .current-temp--icon-img {
+    margin: -20% -5%;
+  }
+  .current-temp--desc {
+    font-size: 1.3rem;
+  }
+}
+
+@media screen and (min-width: 480px) and (orientation: portrait) {
+  .current-temp--temp {
+    font-size: 5rem;
+  }
+  .current-temp--desc {
+    font-size: 1.4rem;
+  }
+}
+
+@media screen and (min-width: 480px) and (orientation: portrait) {
+  .current-temp--icon-img {
+    width: 85%;
+  }
+
+  .current-temp--temp {
+    font-size: 7rem;
+  }
+  .current-temp--desc {
+    font-size: 1.8rem;
+  }
 }

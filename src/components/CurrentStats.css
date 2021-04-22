@@ -1,24 +1,42 @@
 .current-stats {
-	display: flex;
-	flex-wrap: wrap;
-	width: 100%;
-	justify-content: space-around;
-	border-top: 1px solid rgba(255, 255, 255, 0.5);
-	border-bottom: 1px solid rgba(255, 255, 255, 0.5);
-	padding-bottom: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: space-around;
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  padding-bottom: 24px;
 }
 
 .current-stats--last-col {
-	padding-left: 11%;
+  padding-left: 11%;
 }
 
 .current-stats--value {
-	font-size: 1.4rem;
-	margin-top: 24px;
+  font-size: 1.4rem;
+  margin-top: 24px;
 }
 .current-stats--value span {
-	font-size: 1rem;
+  font-size: 1.3rem;
 }
 .current-stats--desc {
-	color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.6);
+}
+
+@media screen and (min-width: 375px) and (orientation: portrait) {
+  .current-stats {
+    margin-top: 16px;
+  }
+}
+
+@media screen and (min-width: 768px) and (orientation: portrait) {
+  .current-stats--value {
+    font-size: 2rem;
+  }
+  .current-stats--value span {
+    font-size: 1.8rem;
+  }
+  .current-stats--desc {
+    font-size: 1.8rem;
+  }
 }
