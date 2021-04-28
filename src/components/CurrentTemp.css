@@ -20,8 +20,8 @@
   width: 100%;
 }
 .current-temp--icon-img {
-  width: 120%;
-  margin: -20%;
+  width: 110%;
+  margin: -10%;
 }
 .current-temp--deg {
   margin: -10% 0;
@@ -30,22 +30,35 @@
   font-size: 1.1rem;
 }
 
+@media screen and (orientation: landscape) {
+  .current-temp--icon-img {
+    width: 85%;
+    margin: -15% -5%;
+  }
+  .current-temp--temp {
+    font-size: 5.4rem;
+  }
+  .current-temp--deg {
+    margin: 0;
+  }
+}
+
 @media screen and (min-width: 375px) and (orientation: portrait) {
   .current-temp--deg {
     margin: -5% 0;
   }
   .current-temp--icon-img {
     width: 100%;
-    margin: -25% -5% -40%;
+    margin: -20% -5%;
   }
 }
 
 @media screen and (min-width: 414px) and (orientation: portrait) {
   .current-temp--icon-img {
-    margin: -20% -5%;
+    width: 80%;
   }
   .current-temp--desc {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
   }
 }
 
@@ -58,15 +71,75 @@
   }
 }
 
-@media screen and (min-width: 480px) and (orientation: portrait) {
-  .current-temp--icon-img {
-    width: 85%;
+@media screen and (min-width: 568px) and (orientation: portrait) {
+  .current-temp {
+    width: 50%;
+  }
+  .current-temp--icon {
+    flex-basis: 55%;
+  }
+  .current-temp--temp {
+    flex-basis: 45%;
+    font-size: 4rem;
+    margin: -10% 0 0;
   }
 
-  .current-temp--temp {
-    font-size: 7rem;
+  .current-temp--icon-img {
+    width: 100%;
+    margin: -15% -10% -10%;
   }
   .current-temp--desc {
-    font-size: 1.8rem;
+    font-size: 1.2rem;
+  }
+}
+
+@media screen and (min-width: 568px) and (orientation: landscape) {
+  .current-temp {
+    width: 50%;
+    margin-top: 24px;
+  }
+  .current-temp--icon {
+    flex-basis: 55%;
+  }
+  .current-temp--temp {
+    flex-basis: 45%;
+    font-size: 4rem;
+  }
+  /* .current-temp--deg {
+    margin: -40% 0 0;
+  } */
+
+  .current-temp--icon-img {
+    width: 110%;
+    margin: -20% -10%;
+  }
+  .current-temp--desc {
+    font-size: 1.1rem;
+  }
+}
+
+@media screen and (min-width: 768px) and (orientation: landscape) {
+  .current-temp--icon-img {
+    width: 90%;
+    margin: -20% -5% 0;
+  }
+  .current-temp--deg {
+    margin: -20% 0 0;
+  }
+  .current-temp--temp {
+    font-size: 5.4rem;
+  }
+  .current-temp--desc {
+    font-size: 1.2rem;
+  }
+}
+
+@media screen and (min-width: 1024px) and (orientation: landscape) {
+  .current-temp--icon-img {
+    width: 85%;
+    margin: -20% 0;
+  }
+  .current-temp--deg {
+    margin: -10% 0 0;
   }
 }

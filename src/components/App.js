@@ -62,9 +62,6 @@ class App extends Component {
       })
       .then((response) => response.json())
       .then((data2) => {
-        console.log('API 2:');
-        console.log(data2);
-
         const days = data2.daily;
         this.setState({
           err: false,
@@ -91,8 +88,6 @@ class App extends Component {
       })
       .then((response) => response.json())
       .then((data) => {
-        console.log('API 1:');
-        console.log(data);
         const time = new Date();
         this.setState((prevState) => ({
           err: false,
@@ -151,6 +146,15 @@ class App extends Component {
         </>
       );
     }
+
+    let empty = null;
+    if (this.state.value) {
+      empty = (
+        <div className="display-no-city">
+          In our database there is no city: <strong>{this.state.value}</strong>
+        </div>
+      );
+    }
     return (
       <div className="App">
         <Form
@@ -158,12 +162,13 @@ class App extends Component {
           change={this.handleInputChange}
           submit={this.handleCitySubmit}
         />
-        <div className="result">
-          {this.state.err ? `In our database there is no city: ${this.state.value}` : result}
-        </div>
+        {this.state.err ? empty : result}
       </div>
     );
   }
 }
 
 export default App;
+
+// Sprawdzić head Html. scaling itd
+//
