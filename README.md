@@ -1,9 +1,23 @@
-## Project Description
+# Weather App
 
-Current weather conditions are displayed at a large size
-Weather conditions for the next 5 days are displayed
-The location of the weather conditions is displayed
-The page looks good on all devices from mobile phones through to large desktops
+Current weather conditions are displayed at a large size Weather conditions for the next 5 days are displayed The location of the weather conditions is displayed The page looks good on all devices from mobile phones through to large desktops.
+
+## Tech stack:
+
+HTML, CSS, JavsScript, React
+
+## Demo
+
+https://dalilehk.github.io/weatherApp/
+
+## Features
+
+- search bar
+- responsive (mobile first)
+
+## Preview on different devices
+
+![alt text](https://github.com/dalilehk/weatherApp/blob/master/weatherApp.JPG?raw=true)
 
 ---
 
